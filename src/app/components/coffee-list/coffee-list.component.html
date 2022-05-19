@@ -1,0 +1,23 @@
+<div class="row justify-content-center">
+    <div class="col-md-8 d-grid gap-4">
+        <div class="row">
+            <div class="col-md-12 d-grid gap-2">
+                <div *ngFor="let i of items" class="card">
+                    <div class="card-body">
+                        <div class="d-flex justify-content-between">
+                            <h5 class="card-title">{{i.blend_name}}</h5>
+                            <button (click)="selectCoffee(i)" class="btn btn-link btn-sm">more</button>
+                        </div>
+                        <h6 class="card-subtitle">{{i.variety}}</h6>
+                        <p>{{i.notes}}</p>
+                    </div>
+                </div>        
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <pagination [(ngModel)]="this.page.pageNumber" [totalItems]="this.page.totalItems" [itemsPerPage]="this.page.pageSize" (pageChanged)="pageChanged($event)"></pagination>        
+            </div>
+        </div>
+    </div>
+</div>
